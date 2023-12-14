@@ -9,16 +9,9 @@ font = ImageFont.truetype("Afacad-Regular.ttf", size=30)
 
 
 def generate_card(logo_photo, punchline_color, punchline_text, button_text):
-    template = Image.open("blank-template.png")
+
     logo = Image.open(io.BytesIO(logo_photo)).resize((213,94), Image.LANCZOS)
     pic = Image.open("photo/coffee-mug.png").resize((360,351), Image.LANCZOS)
-    template.paste(pic, (180,125,540,476))
-    template.paste(logo, (253,11,466,105))
-    draw = ImageDraw.Draw(template)
-    draw.text((94, 542), punchline_text, font=font, fill=punchline_color)
-    draw.text((262, 683), button_text, font=font, fill=punchline_color)
-    rgb_template = template.convert("RGB")
-    rgb_template.save("card.png")
 
 
 
